@@ -45,12 +45,267 @@ const roles = [
 export default function Home() {
   const [selectedRole, setSelectedRole] = useState("admin");
   const [loggedIn, setLoggedIn] = useState(false);
-  if (loggedIn) {
+if (loggedIn) {
   return (
-    <main style={{ padding: "40px", fontFamily: "Arial, sans-serif" }}>
-      <h1>NAVLOG TMS</h1>
-      <h2>Yönetim Paneli</h2>
-      <p>Sisteme başarıyla giriş yaptınız.</p>
+    <main
+      style={{
+        minHeight: "100vh",
+        background: "#f4f7fb",
+        fontFamily: "Arial, sans-serif",
+        color: "#0b2545",
+      }}
+    >
+      {/* ÜST MENÜ */}
+      <header
+        style={{
+          height: "72px",
+          background: "#ffffff",
+          borderBottom: "1px solid #e5eaf0",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "0 32px",
+        }}
+      >
+        <div>
+          <strong style={{ fontSize: "25px", letterSpacing: "1px" }}>
+            NAVLOG
+          </strong>
+          <span
+            style={{
+              color: "#0787f8",
+              fontSize: "12px",
+              fontWeight: "700",
+              marginLeft: "5px",
+            }}
+          >
+            TMS
+          </span>
+        </div>
+
+        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+          <span style={{ color: "#64748b", fontSize: "14px" }}>
+            Yönetici Paneli
+          </span>
+
+          <button
+            type="button"
+            onClick={() => setLoggedIn(false)}
+            style={{
+              border: "1px solid #dbe3ec",
+              background: "#fff",
+              borderRadius: "8px",
+              padding: "9px 15px",
+              cursor: "pointer",
+              fontWeight: "600",
+            }}
+          >
+            Çıkış Yap
+          </button>
+        </div>
+      </header>
+
+      <div style={{ display: "flex", minHeight: "calc(100vh - 72px)" }}>
+        {/* SOL MENÜ */}
+        <aside
+          style={{
+            width: "240px",
+            background: "#0b2545",
+            padding: "25px 15px",
+            color: "#fff",
+          }}
+        >
+          {[
+            "Genel Bakış",
+            "Aktif Yükler",
+            "Araçlar",
+            "Seferler",
+            "Fabrikalar",
+            "Nakliyeciler",
+            "Şoförler",
+            "Finans",
+          ].map((item, index) => (
+            <div
+              key={item}
+              style={{
+                padding: "14px 16px",
+                marginBottom: "6px",
+                borderRadius: "8px",
+                background: index === 0 ? "#087ff5" : "transparent",
+                cursor: "pointer",
+                fontSize: "14px",
+                fontWeight: index === 0 ? "700" : "500",
+              }}
+            >
+              {item}
+            </div>
+          ))}
+        </aside>
+
+        {/* ANA İÇERİK */}
+        <section style={{ flex: 1, padding: "32px" }}>
+          <div style={{ marginBottom: "28px" }}>
+            <h1 style={{ margin: 0, fontSize: "28px" }}>
+              Operasyon Merkezi
+            </h1>
+
+            <p
+              style={{
+                color: "#64748b",
+                marginTop: "8px",
+                marginBottom: 0,
+              }}
+            >
+              NAVLOG TMS lojistik operasyonlarınızın güncel durumu.
+            </p>
+          </div>
+
+          {/* İSTATİSTİK KARTLARI */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(4, minmax(180px, 1fr))",
+              gap: "18px",
+              marginBottom: "28px",
+            }}
+          >
+            {[
+              ["12", "Aktif Yük"],
+              ["8", "Aktif Araç"],
+              ["5", "Bekleyen Teklif"],
+              ["3", "Bugünkü Teslimat"],
+            ].map(([number, label]) => (
+              <div
+                key={label}
+                style={{
+                  background: "#fff",
+                  border: "1px solid #e5eaf0",
+                  borderRadius: "12px",
+                  padding: "22px",
+                }}
+              >
+                <div
+                  style={{
+                    color: "#087ff5",
+                    fontSize: "30px",
+                    fontWeight: "800",
+                  }}
+                >
+                  {number}
+                </div>
+
+                <div
+                  style={{
+                    color: "#64748b",
+                    marginTop: "7px",
+                    fontSize: "14px",
+                  }}
+                >
+                  {label}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* OPERASYON TABLOSU */}
+          <div
+            style={{
+              background: "#fff",
+              border: "1px solid #e5eaf0",
+              borderRadius: "12px",
+              overflow: "hidden",
+            }}
+          >
+            <div
+              style={{
+                padding: "20px 22px",
+                borderBottom: "1px solid #e5eaf0",
+              }}
+            >
+              <h2 style={{ margin: 0, fontSize: "18px" }}>
+                Güncel Operasyonlar
+              </h2>
+            </div>
+
+            <div style={{ overflowX: "auto" }}>
+              <table
+                style={{
+                  width: "100%",
+                  borderCollapse: "collapse",
+                  textAlign: "left",
+                }}
+              >
+                <thead>
+                  <tr style={{ background: "#f8fafc" }}>
+                    {[
+                      "Yük No",
+                      "Yükleme",
+                      "Teslimat",
+                      "Araç",
+                      "Durum",
+                    ].map((title) => (
+                      <th
+                        key={title}
+                        style={{
+                          padding: "14px 20px",
+                          fontSize: "12px",
+                          color: "#64748b",
+                          borderBottom: "1px solid #e5eaf0",
+                        }}
+                      >
+                        {title}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {[
+                    [
+                      "NV-2026-001",
+                      "Konya Ereğli",
+                      "Çorum + Tokat",
+                      "13.60 Tır",
+                      "Yolda",
+                    ],
+                    [
+                      "NV-2026-002",
+                      "Konya Ereğli",
+                      "Elmadağ + Akyurt",
+                      "13.60 Tır",
+                      "Yüklemede",
+                    ],
+                    [
+                      "NV-2026-003",
+                      "Konya Ereğli",
+                      "Tekkeköy",
+                      "13.60 Tır",
+                      "Araç Bekliyor",
+                    ],
+                  ].map((row) => (
+                    <tr key={row[0]}>
+                      {row.map((cell, index) => (
+                        <td
+                          key={cell}
+                          style={{
+                            padding: "16px 20px",
+                            borderBottom: "1px solid #eef2f6",
+                            fontSize: "14px",
+                            color: index === 4 ? "#087ff5" : "#334155",
+                            fontWeight: index === 4 ? "700" : "500",
+                          }}
+                        >
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }
