@@ -44,7 +44,16 @@ const roles = [
 
 export default function Home() {
   const [selectedRole, setSelectedRole] = useState("admin");
-
+  const [loggedIn, setLoggedIn] = useState(false);
+  if (loggedIn) {
+  return (
+    <main style={{ padding: "40px", fontFamily: "Arial, sans-serif" }}>
+      <h1>NAVLOG TMS</h1>
+      <h2>Yönetim Paneli</h2>
+      <p>Sisteme başarıyla giriş yaptınız.</p>
+    </main>
+  );
+}
   const activeRole = roles.find((role) => role.id === selectedRole);
   const ActiveIcon = activeRole.icon;
 
@@ -198,7 +207,14 @@ export default function Home() {
               </button>
             </div>
 
-            <button type="button" className="login-button">
+            <button
+  type="button"
+  className="login-button"
+  onClick={() => setLoggedIn(true)}
+>
+  Giriş Yap
+  <ArrowRight />
+</button>
               Giriş Yap
               <ArrowRight />
             </button>
