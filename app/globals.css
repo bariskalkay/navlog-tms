@@ -1,0 +1,668 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f8fd;
+  color: #0b1f42;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 56% 44%;
+  background:
+    radial-gradient(circle at 25% 10%, rgba(28, 130, 255, 0.13), transparent 32%),
+    linear-gradient(135deg, #ffffff 0%, #eef7ff 52%, #dbeeff 100%);
+}
+
+.brand-side {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding: 55px 5vw 30px;
+}
+
+.brand-side::before {
+  content: "";
+  position: absolute;
+  width: 650px;
+  height: 420px;
+  top: 80px;
+  right: -80px;
+  opacity: 0.12;
+  background:
+    radial-gradient(circle at 15% 35%, #087cff 0 4px, transparent 5px),
+    radial-gradient(circle at 40% 15%, #087cff 0 4px, transparent 5px),
+    radial-gradient(circle at 58% 48%, #087cff 0 4px, transparent 5px),
+    radial-gradient(circle at 78% 20%, #087cff 0 4px, transparent 5px),
+    radial-gradient(circle at 90% 60%, #087cff 0 4px, transparent 5px);
+}
+
+.brand-content {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.logo-mark {
+  width: 76px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  font-size: 58px;
+  line-height: 1;
+  font-weight: 900;
+  font-style: italic;
+  color: #087cff;
+  letter-spacing: -12px;
+  text-shadow: 12px 0 0 rgba(8, 124, 255, 0.25);
+}
+
+.logo-name {
+  font-size: clamp(38px, 4vw, 66px);
+  line-height: 0.9;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #071c43;
+}
+
+.logo-name span {
+  font-size: 18px;
+  color: #087cff;
+  margin-left: 10px;
+}
+
+.logo-subtitle {
+  margin-top: 8px;
+  font-size: 12px;
+  letter-spacing: 0.8px;
+  color: #53657f;
+}
+
+.hero {
+  margin-top: 65px;
+  max-width: 670px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 3.2vw, 59px);
+  line-height: 1.12;
+  letter-spacing: -2px;
+  color: #0a2149;
+}
+
+.hero h1 span {
+  display: block;
+  color: #087cff;
+}
+
+.hero p {
+  margin-top: 25px;
+  max-width: 620px;
+  color: #566981;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.features {
+  margin-top: 45px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 760px;
+}
+
+.feature {
+  padding: 0 20px;
+  min-height: 115px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  border-right: 1px solid #d5e2f1;
+}
+
+.feature:first-child {
+  padding-left: 0;
+}
+
+.feature:last-child {
+  border-right: none;
+}
+
+.feature svg {
+  width: 31px;
+  height: 31px;
+  stroke: #087cff;
+  margin-bottom: 12px;
+}
+
+.feature strong {
+  font-size: 14px;
+  color: #102442;
+}
+
+.feature span {
+  margin-top: 8px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #64758b;
+}
+
+.logistics-visual {
+  height: 330px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.warehouse {
+  position: absolute;
+  right: 0;
+  bottom: 25px;
+  width: 72%;
+  height: 215px;
+  border-radius: 14px 14px 0 0;
+  background:
+    linear-gradient(90deg, transparent 0 55%, rgba(8,124,255,.08) 55% 56%, transparent 56%),
+    linear-gradient(180deg, #f8fbff 0%, #d9e7f3 100%);
+  border: 1px solid #c7d7e7;
+  box-shadow: 0 20px 60px rgba(22, 70, 120, 0.12);
+}
+
+.warehouse-logo {
+  position: absolute;
+  right: 45px;
+  top: 38px;
+  color: #0b2d5c;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.doors {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+.doors span {
+  width: 72px;
+  height: 95px;
+  padding-top: 7px;
+  text-align: center;
+  color: white;
+  font-size: 11px;
+  background: linear-gradient(#294968, #112a42);
+  border-top: 10px solid #087cff;
+}
+
+.truck {
+  position: absolute;
+  left: 2%;
+  bottom: 0;
+  width: 72%;
+  height: 170px;
+  filter: drop-shadow(0 20px 18px rgba(19, 48, 82, 0.2));
+}
+
+.truck-cabin {
+  position: absolute;
+  left: 0;
+  bottom: 27px;
+  width: 155px;
+  height: 115px;
+  background: linear-gradient(135deg, #fff 10%, #e4edf5);
+  border: 2px solid #9cb0c5;
+  border-radius: 25px 12px 8px 8px;
+}
+
+.truck-cabin::before {
+  content: "";
+  position: absolute;
+  width: 75px;
+  height: 43px;
+  right: 13px;
+  top: 14px;
+  background: #263e56;
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+  border-radius: 4px;
+}
+
+.truck-trailer {
+  position: absolute;
+  left: 135px;
+  right: 0;
+  bottom: 38px;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #092653;
+  background: linear-gradient(135deg, #fff, #e8f1f8);
+  border: 2px solid #afc0d1;
+  border-radius: 5px;
+}
+
+.truck-trailer strong {
+  font-size: 33px;
+  letter-spacing: 1px;
+}
+
+.truck-trailer small {
+  font-size: 7px;
+  margin-top: 5px;
+  color: #52667c;
+}
+
+.wheel {
+  position: absolute;
+  bottom: 10px;
+  width: 46px;
+  height: 46px;
+  border: 10px solid #182b3e;
+  border-radius: 50%;
+  background: #718398;
+}
+
+.wheel-one {
+  left: 65px;
+}
+
+.wheel-two {
+  right: 90px;
+}
+
+.wheel-three {
+  right: 30px;
+}
+
+.login-side {
+  min-height: 100vh;
+  padding: 30px 4vw 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 710px;
+  padding: 38px 34px 25px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(191, 211, 232, 0.8);
+  border-radius: 24px;
+  box-shadow:
+    0 30px 80px rgba(31, 76, 124, 0.14),
+    0 3px 12px rgba(31, 76, 124, 0.06);
+  backdrop-filter: blur(16px);
+}
+
+.login-header {
+  text-align: center;
+}
+
+.login-header h2 {
+  font-size: 34px;
+  letter-spacing: -1px;
+  color: #091d40;
+}
+
+.login-header p {
+  margin-top: 8px;
+  color: #718097;
+  font-size: 15px;
+}
+
+.section-label {
+  margin-top: 30px;
+  margin-bottom: 13px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #162844;
+}
+
+.roles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid #dce6f0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: white;
+}
+
+.role-button {
+  min-height: 108px;
+  padding: 14px 8px;
+  border: none;
+  border-right: 1px solid #e4ebf3;
+  background: transparent;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #12233f;
+  transition: 0.2s ease;
+}
+
+.role-button:last-child {
+  border-right: none;
+}
+
+.role-button svg {
+  width: 30px;
+  height: 30px;
+  stroke: #087cff;
+}
+
+.role-button:nth-child(2) svg {
+  stroke: #14ae6f;
+}
+
+.role-button:nth-child(3) svg {
+  stroke: #f58a17;
+}
+
+.role-button:nth-child(4) svg {
+  stroke: #8155e7;
+}
+
+.role-button span {
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.role-button:hover {
+  background: #f7fbff;
+}
+
+.role-button.active {
+  color: #086ee5;
+  background: linear-gradient(180deg, #f8fcff, #edf7ff);
+  box-shadow: inset 0 -3px 0 #087cff;
+}
+
+.role-info {
+  margin-top: 22px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: linear-gradient(100deg, #f3f9ff, #f9fcff);
+  border: 1px solid #d8e8f8;
+  border-radius: 13px;
+}
+
+.role-info-icon {
+  width: 45px;
+  height: 45px;
+  flex: 0 0 45px;
+  display: grid;
+  place-items: center;
+  color: #087cff;
+  background: #e6f2ff;
+  border-radius: 50%;
+}
+
+.role-info-icon svg {
+  width: 23px;
+}
+
+.role-info strong {
+  display: block;
+  color: #102341;
+  font-size: 14px;
+}
+
+.role-info p {
+  margin-top: 5px;
+  color: #62738a;
+  font-size: 13px;
+}
+
+.login-form {
+  margin-top: 25px;
+}
+
+.login-form > label {
+  display: block;
+  margin-top: 17px;
+  font-size: 13px;
+  font-weight: 750;
+  color: #172842;
+}
+
+.input-wrap {
+  height: 55px;
+  margin-top: 9px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #d2dfec;
+  border-radius: 11px;
+  background: #fff;
+  transition: 0.2s;
+}
+
+.input-wrap:focus-within {
+  border-color: #087cff;
+  box-shadow: 0 0 0 3px rgba(8, 124, 255, 0.1);
+}
+
+.input-wrap svg {
+  width: 19px;
+  color: #8091a8;
+}
+
+.input-wrap input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #10233f;
+  font-size: 14px;
+}
+
+.input-wrap input::placeholder {
+  color: #a0adbd;
+}
+
+.input-wrap .eye {
+  cursor: pointer;
+}
+
+.form-options {
+  margin: 17px 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #40516a;
+  font-size: 13px;
+}
+
+.forgot {
+  border: none;
+  background: transparent;
+  color: #0873ed;
+  font-size: 13px;
+}
+
+.login-button {
+  width: 100%;
+  height: 58px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  font-weight: 750;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(90deg, #087fff, #0866dc);
+  box-shadow: 0 12px 25px rgba(8, 112, 234, 0.22);
+}
+
+.login-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(8, 112, 234, 0.28);
+}
+
+.login-button svg {
+  width: 19px;
+}
+
+.security-row {
+  margin-top: 25px;
+  padding: 14px 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid #e0e8f1;
+  border-radius: 11px;
+}
+
+.security-row > div {
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border-right: 1px solid #e3eaf1;
+}
+
+.security-row > div:last-child {
+  border-right: none;
+}
+
+.security-row svg {
+  width: 21px;
+  color: #087cff;
+}
+
+.security-row > div:nth-child(2) svg {
+  color: #36be78;
+}
+
+.security-row span {
+  display: flex;
+  flex-direction: column;
+  color: #76859a;
+  font-size: 9px;
+}
+
+.security-row strong {
+  margin-bottom: 3px;
+  color: #23344e;
+  font-size: 10px;
+}
+
+footer {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid #e4ebf2;
+  display: flex;
+  justify-content: space-between;
+  color: #73839a;
+  font-size: 10px;
+}
+
+@media (max-width: 1100px) {
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-side {
+    min-height: auto;
+    padding-bottom: 10px;
+  }
+
+  .logistics-visual {
+    display: none;
+  }
+
+  .login-side {
+    min-height: auto;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 650px) {
+  .brand-side {
+    padding: 30px 20px 10px;
+  }
+
+  .hero {
+    margin-top: 40px;
+  }
+
+  .hero p,
+  .features {
+    display: none;
+  }
+
+  .login-side {
+    padding: 12px;
+  }
+
+  .login-card {
+    padding: 25px 15px 18px;
+    border-radius: 18px;
+  }
+
+  .roles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .role-button:nth-child(2) {
+    border-right: none;
+  }
+
+  .role-button {
+    border-bottom: 1px solid #e4ebf3;
+  }
+
+  .security-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .security-row > div {
+    border-right: none;
+  }
+
+  footer {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
