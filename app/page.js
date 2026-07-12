@@ -215,11 +215,7 @@ export default function Home() {
   Giriş Yap
   <ArrowRight />
 </button>
-              Giriş Yap
-              <ArrowRight />
-            </button>
-          </form>
-
+ </form>            
           <div className="security-row">
             <div>
               <ShieldCheck />
