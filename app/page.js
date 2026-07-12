@@ -198,7 +198,7 @@ export default function Home() {
               </button>
             </div>
 
-            <button type="submit" className="login-button">
+            <button type="button" className="login-button">
               Giriş Yap
               <ArrowRight />
             </button>
